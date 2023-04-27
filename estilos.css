@@ -10,50 +10,21 @@ body{
     color: white;
 }
 
-header{
-    display: flex;
-    height: 70px;
-    background-color:darkmagenta;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    padding: 10px;
-    top: 0;
-    left: 0;
-}
-
-a {
-    text-decoration: none;
-}
-.logo{
-    display: flex;
-    align-items: center;
-}
-
-.logo img{
-    height: 70px;
-    align-items: center;
-}
-
-.info{
-    display: flex;
-    color:white;
-}
-
-.info a{
-    font-weight: 600;
-    padding-right: 10px;
-    margin: 0px 10px;
-}
-
-.info a:hover{
-    color:black;
-}
-
 .row{
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
+.navbar-brand img{
+    height: 70px;
+    align-items: center;
+}
+
+.navbar{
+    background-color:darkmagenta;
+}
+
+.A{
+    color: white;
 }
