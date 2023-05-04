@@ -114,3 +114,7 @@ body{
         font-size: 1.8rem;
     }
 }
+
+.form_error{
+    border-bottom-color: red;
+}
