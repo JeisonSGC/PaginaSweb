@@ -1,5 +1,5 @@
 body{
-    background: url(Imagenesv2/Imagenfondo.png) no-repeat fixed center;
+    background: url(Imagenes/Imagenfondo.png) no-repeat fixed center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -58,4 +58,54 @@ body{
 
 #Yt{
     color: red;
+}
+
+.slick-slide img {
+    max-width: 10px;
+    height: auto;
+    display: block;
+}
+
+.slider img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.slider {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.slick-prev:after {
+    display: none;
+}
+
+.slick-next:after {
+    display: none;
+}
+
+.slick-prev {
+    left: -60px;
+    z-index: 1;
+    padding: 10px 20px;
+    background-color: darkmagenta;
+    border: 2px solid #fff;
+    font-size: 24px;
+    color: #fff;
+    content: "Anterior";
+    margin: 0 10px 0 0;
+}
+
+.slick-next {
+    right: -60px;
+    z-index: 1;
+    padding: 10px 20px;
+    background-color: darkmagenta;
+    border: 2px solid #fff;
+    font-size: 24px;
+    color: #fff;
+    content: "Siguiente";
+    margin: 0 0 0 10px;
 }
