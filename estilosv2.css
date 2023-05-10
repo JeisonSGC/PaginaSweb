@@ -1,9 +1,20 @@
+html{
+    height: 100%;
+}
+
 body{
     background: url(Imagenes/Imagenfondo.png) no-repeat fixed center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#FT{
+    margin-top: auto;
 }
 
 .c1{
@@ -108,4 +119,13 @@ body{
     color: #fff;
     content: "Siguiente";
     margin: 0 0 0 10px;
+}
+
+.container{
+    background-color: darkmagenta;
+    border: white;
+}
+
+.SN{
+    color: white;
 }
