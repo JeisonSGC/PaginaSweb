@@ -1,0 +1,73 @@
+html{
+    height: 100%;
+}
+
+body{
+    background: url(../Imagenes/Imagenfondo.png) no-repeat fixed center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#FT{
+    margin-top: auto;
+}
+
+.c1{
+    color: white;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-brand img{
+    height: 70px;
+    align-items: center;
+}
+
+.navbar{
+    background-color:darkmagenta;
+}
+
+.A{
+    color: white;
+}
+
+.nav-link{
+    color: white;
+}
+
+#K{
+    background-color: darkmagenta;
+}
+
+#PreLogo img{
+    width: 80px;
+    height: 80px;
+    margin: 0px 50px;
+    display: flex;
+}
+
+.c2{
+    color: white;
+}
+
+#Fb{
+    color: blue;
+}
+
+#Ig{
+    color: darkorange;
+}
+
+#Yt{
+    color: red;
+}
+
