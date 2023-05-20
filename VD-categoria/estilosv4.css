@@ -15,7 +15,7 @@ body{
 }
 
 #footer{
-    position: fixed;
+    position: static;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -83,3 +83,26 @@ body{
     color: red;
 }
 
+#IMG{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+    background-color: darkmagenta;
+    border: 2px solid;
+    border-color: white;
+}
+
+.MIG{
+    width: 600px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Boton{
+    color: white;
+    background-color: darkmagenta;
+    border: 2px solid;
+    border-color: white;
+    margin-top: 10px;
+}
