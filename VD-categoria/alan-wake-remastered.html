@@ -50,7 +50,17 @@
       </div>
 
       <div class="col-md-6" id="IMG">
-        <h2 class="c1">Insertar Descripcion</h2>
+        <h2 class="c1" id="nombreVideojuego">Cargando...</h2>
+        <p id="Des1">Una versión mejorada del juego original de 2010. La historia Sigue a Alan Wake, un escritor que viaja al pueblo de Bright Falls
+            para recuperar su inspiración, pero se encuentra con una oscuridad que posee a las personas y los objetos. Para combatir a los enemigos,
+            Alan debe usar la luz de su linterna y diversas armas de fuego. El juego tiene un formato episódico que emula a las series de televisión
+            y está inspirado en obras de Stephen King, David Lynch y Twin Peaks2.</p>
+        <p id="Des1">Precio: $17.500.</p>
+        <p id="plataformaVideojuego">Cargando...</p>
+        <p id="generoVideojuego">Género: Shooter, Adventure, Action, Mitery</p>
+        <p id="fechaLanzamientoVideojuego">Cargando...</p>
+        <p id="clasificacionVideojuego">Cargando...</p>
+        <p id="tagVideojuego">Cargando...</p>
       </div>
     </div>
 
@@ -88,6 +98,37 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script>
+
+      const nombreVideojuegoElement = document.querySelector("#nombreVideojuego");
+      const plataformaVideojuegoElement = document.querySelector("#plataformaVideojuego");
+      const tagVideojuegoElement = document.querySelector("#tagVideojuego");
+      const fechaLanzamientoVideojuegoElement = document.querySelector("#fechaLanzamientoVideojuego");
+      const clasificacionVideojuegoElement = document.querySelector("#clasificacionVideojuego");
+
+
+      fetch('https://api.rawg.io/api/games?search=Alan Wake&key=Ingrese aqui su API KEY')
+        .then(response => response.json())
+        .then(data => {
+          
+          const videojuego = data.results[0];
+          const nombre = videojuego.name;
+          const plataforma = videojuego.platforms.map(platform => platform.platform.name).join(', ');
+          const tag = videojuego.tags.map(tag => tag.name).join(', ');
+          const fechaLanzamiento = videojuego.released;
+          const clasificacion = videojuego.esrb_rating ? videojuego.esrb_rating.name : 'No clasificado';
+
+          
+          nombreVideojuegoElement.textContent = nombre;
+          plataformaVideojuegoElement.textContent = `Plataforma: ${plataforma}`;
+          tagVideojuegoElement.textContent = `Etiquetas: ${tag}`;
+          fechaLanzamientoVideojuegoElement.textContent = `Fecha de lanzamiento: ${fechaLanzamiento}`;
+          clasificacionVideojuegoElement.textContent = `Clasificación: ${clasificacion}`;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    </script>
   </body>
 
 </html>

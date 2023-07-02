@@ -50,7 +50,33 @@
       </div>
 
       <div class="col-md-6" id="IMG">
-        <h2 class="c1">Insertar Descripcion</h2>
+        <h2 class="c1" id="nombreVideojuego">Cargando...</h2>
+        <p id="Des1">es un juego de terror y supervivencia en primera persona desarrollado por Red Barrels. Si bien continúa con las ideas del primer 
+          Outlast, la historia del juego no 
+          continúa la trama del primer título de la serie.
+
+          Trama
+          Blake y su esposa Lynn son periodistas que investigan un caso relacionado con el asesinato de una mujer embarazada. Se dispusieron a visitar 
+          la escena del crimen en la remota aldea de Arizona en un helicóptero que se descompone en el aire y se estrella. Blake tiene que encontrar a 
+          su esposa y averiguar qué está pasando en el pueblo.
+          
+          Como se Juega
+          Como el primer juego de la serie y su paquete de expansión, Outlast 2 es una experiencia de terror de supervivencia para un solo jugador. El 
+          protagonista principal no puede luchar contra sus enemigos, por lo que se usa el sigilo para evitar la confrontación. A diferencia de 
+          los títulos anteriores, Outlast 2 presenta una barra de resistencia y nuevas incorporaciones al sistema de movimiento, como deslizarse y 
+          ponerse boca abajo.
+          
+          Blake tiene una cámara con él en todo momento. Esta cámara se utiliza para activar la visión nocturna, escuchando conversaciones a distancia 
+          con su micrófono. La cámara requiere baterías para que funcione, por lo que los jugadores deben buscarlas en los niveles.
+          
+          No hay regeneración de salud automática presente en el juego. Entonces, cuando el jugador sufre algún daño, necesita encontrar un botiquín 
+          para restaurar su agilidad y salud.</p>
+        <p id="Des1">Precio: $1.000</p>
+        <p id="plataformaVideojuego">Cargando...</p>
+        <p id="Des1">Género: Action, Adventure, Indie, Terror</p>
+        <p id="fechaLanzamientoVideojuego">Cargando...</p>
+        <p id="clasificacionVideojuego">Cargando...</p>
+        <p id="tagVideojuego">Cargando...</p>
       </div>
     </div>
 
@@ -82,6 +108,34 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script>
+      const nombreVideojuegoElement = document.querySelector("#nombreVideojuego");
+      const plataformaVideojuegoElement = document.querySelector("#plataformaVideojuego");
+      const tagVideojuegoElement = document.querySelector("#tagVideojuego");
+      const fechaLanzamientoVideojuegoElement = document.querySelector("#fechaLanzamientoVideojuego");
+      const clasificacionVideojuegoElement = document.querySelector("#clasificacionVideojuego");
+  
+      fetch('https://api.rawg.io/api/games?search=Outlast%202&key=Ingrese aqui su API KEY')
+        .then(response => response.json())
+        .then(data => {
+  
+          const videojuego = data.results[0];
+          const nombre = videojuego.name;
+          const plataforma = videojuego.platforms.map(platform => platform.platform.name).join(', ');
+          const tag = videojuego.tags.map(tag => tag.name).join(', ');
+          const fechaLanzamiento = videojuego.released;
+          const clasificacion = videojuego.esrb_rating ? videojuego.esrb_rating.name : 'No clasificado';
+
+          nombreVideojuegoElement.textContent = nombre;
+          plataformaVideojuegoElement.textContent = `Plataforma: ${plataforma}`;
+          tagVideojuegoElement.textContent = `Etiquetas: ${tag}`;
+          fechaLanzamientoVideojuegoElement.textContent = `Fecha de lanzamiento: ${fechaLanzamiento}`;
+          clasificacionVideojuegoElement.textContent = `Clasificación: ${clasificacion}`;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    </script>
   </body>
 
 </html>

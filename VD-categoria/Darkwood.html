@@ -50,8 +50,23 @@
       </div>
 
       <div class="col-md-6" id="IMG">
-        <h2 class="c1">Insertar Descripcion</h2>
-      </div>
+        <h2 class="c1" id="nombreVideojuego">Cargando...</h2>
+        <p id="Des1">Darkwood ofrece una nueva perspectiva sobre el horror de la supervivencia.
+          Busca y explora el rico y siempre cambiante mundo libre durante el día, luego agáchate en tu escondite y reza por la luz de la mañana.
+          Horror de supervivencia desde una perspectiva de arriba hacia abajo que es aterrador de jugar.
+          Sin marcadores de búsqueda o de mano. ¡Pon a prueba tus habilidades y resuelve las cosas por tu cuenta!
+          Durante el día, explore los bosques siempre siniestros generados aleatoriamente, busque materiales, fabrique armas y descubra nuevos secretos.
+          Por la noche encuentra refugio, haz barricadas, coloca trampas y escóndete o defiéndete de los horrores que acechan en la oscuridad.
+          Obtenga habilidades y ventajas extrayendo una extraña esencia de la fauna y la flora mutadas e inyectándola en su torrente sanguíneo. Cuidado con las consecuencias inesperadas...
+          Toma decisiones que impacten el mundo de Darkwood, sus habitantes y la historia que vives.
+          Conoce personajes espeluznantes, aprende sus historias y decide su destino. Y recuerda: no confíes en nadie.
+          A medida que pasan las noches, las líneas entre la realidad y las fantasías de pesadilla comienzan a desdibujarse. ¿Estás listo para entrar en Darkwood?</p>
+        <p id="Des1">Precio: $3.200</p>
+        <p id="plataformaVideojuego">Cargando...</p>
+        <p id="Des1">Género: Action, Adventure, RPG, Indie, Terror</p>
+        <p id="fechaLanzamientoVideojuego">Cargando...</p>
+        <p id="clasificacionVideojuego">Cargando...</p>
+        <p id="tagVideojuego">Cargando...</p>
     </div>
 
     <div class="col-md-6" id="IM">
@@ -82,6 +97,34 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script>
+      const nombreVideojuegoElement = document.querySelector("#nombreVideojuego");
+      const plataformaVideojuegoElement = document.querySelector("#plataformaVideojuego");
+      const tagVideojuegoElement = document.querySelector("#tagVideojuego");
+      const fechaLanzamientoVideojuegoElement = document.querySelector("#fechaLanzamientoVideojuego");
+      const clasificacionVideojuegoElement = document.querySelector("#clasificacionVideojuego");
+  
+      fetch('https://api.rawg.io/api/games?search=Darkwood&key=Ingrese aqui su API KEY')
+        .then(response => response.json())
+        .then(data => {
+  
+          const videojuego = data.results[0];
+          const nombre = videojuego.name;
+          const plataforma = videojuego.platforms.map(platform => platform.platform.name).join(', ');
+          const tag = videojuego.tags.map(tag => tag.name).join(', ');
+          const fechaLanzamiento = videojuego.released;
+          const clasificacion = videojuego.esrb_rating ? videojuego.esrb_rating.name : 'No clasificado';
+
+          nombreVideojuegoElement.textContent = nombre;
+          plataformaVideojuegoElement.textContent = `Plataforma: ${plataforma}`;
+          tagVideojuegoElement.textContent = `Etiquetas: ${tag}`;
+          fechaLanzamientoVideojuegoElement.textContent = `Fecha de lanzamiento: ${fechaLanzamiento}`;
+          clasificacionVideojuegoElement.textContent = `Clasificación: ${clasificacion}`;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    </script>
   </body>
 
 </html>

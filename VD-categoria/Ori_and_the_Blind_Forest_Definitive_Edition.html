@@ -50,7 +50,19 @@
       </div>
 
       <div class="col-md-6" id="IMG">
-        <h2 class="c1">Insertar Descripcion</h2>
+        <h2 class="c1" id="nombreVideojuego">Cargando...</h2>
+        <p id="Des1">El bosque de Nibel se está muriendo. Después de que una poderosa tormenta pone en marcha una serie de eventos devastadores, 
+          Ori debe viajar para encontrar coraje y enfrentarse a un némesis oscuro para salvar el bosque de Nibel. “Ori and the Blind Forest” 
+          cuenta la historia de un joven huérfano destinado a la heroicidad, a través de un Action-Platformer visualmente impresionante creado por 
+          Moon Studios. Con obras de arte pintadas a mano, interpretación de personajes meticulosamente animada, una partitura totalmente 
+          orquestada y docenas de características nuevas en Definitive Edition, "Ori and the Blind Forest" explora una historia profundamente 
+          emotiva sobre el amor y el sacrificio, y la esperanza que existe en todos nosotros.</p>
+        <p id="Des1">Precio: $7.000</p>
+        <p id="plataformaVideojuego">Cargando...</p>
+        <p id="Des1">Género: Adventure, Platformer</p>
+        <p id="fechaLanzamientoVideojuego">Cargando...</p>
+        <p id="clasificacionVideojuego">Cargando...</p>
+        <p id="tagVideojuego">Cargando...</p>
       </div>
     </div>
 
@@ -82,6 +94,34 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script>
+      const nombreVideojuegoElement = document.querySelector("#nombreVideojuego");
+      const plataformaVideojuegoElement = document.querySelector("#plataformaVideojuego");
+      const tagVideojuegoElement = document.querySelector("#tagVideojuego");
+      const fechaLanzamientoVideojuegoElement = document.querySelector("#fechaLanzamientoVideojuego");
+      const clasificacionVideojuegoElement = document.querySelector("#clasificacionVideojuego");
+  
+      fetch('https://api.rawg.io/api/games?search=Ori%20and%20the%20Blind%20Forest%3A%20Definitive%20Edition&key=Ingrese aqui su API KEY')
+        .then(response => response.json())
+        .then(data => {
+  
+          const videojuego = data.results[0];
+          const nombre = videojuego.name;
+          const plataforma = videojuego.platforms.map(platform => platform.platform.name).join(', ');
+          const tag = videojuego.tags.map(tag => tag.name).join(', ');
+          const fechaLanzamiento = videojuego.released;
+          const clasificacion = videojuego.esrb_rating ? videojuego.esrb_rating.name : 'No clasificado';
+
+          nombreVideojuegoElement.textContent = nombre;
+          plataformaVideojuegoElement.textContent = `Plataforma: ${plataforma}`;
+          tagVideojuegoElement.textContent = `Etiquetas: ${tag}`;
+          fechaLanzamientoVideojuegoElement.textContent = `Fecha de lanzamiento: ${fechaLanzamiento}`;
+          clasificacionVideojuegoElement.textContent = `Clasificación: ${clasificacion}`;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    </script>
   </body>
 
 </html>
