@@ -1,0 +1,24 @@
+requerimientos de la pagina web aplicando HTML, CSS, JAVASCRIPT Y JQUERY:
+
+REQUERIMIENTOS QUE POR EL MOMENTO TENDRA LA PAGINA
+-Debe permitir al usuario iniciar sesion
+-El inicio de sesion contener el nombre, usuario y contraseña.
+-Si el usuario deja en blanco algun dato requerido en inicio de sesion este no podra ingresar a la pagina web principal
+-Se debe mostrar un mensaje en pantalla pidiendo que rellene los datos en caso que haya dejado alguno en blanco
+-La pagina debe contener un menu responsive con los siguientes datos: Mis compras, Categorias y Sobre Nosotros.
+-El menu debe contener el logo y el nombre de la empresa.
+-La pagina debe tener un footer responsive con los siguintes datos: Sobre nosotros, Siguenos y los derechos reservados.
+-El footer debe contener el logo y nombre de la empresa.
+-El logo y nombre de la empresa en el menu una vez que este sea clickeado debe llevarte a la pagina principal.
+-La pagina en el inicio debe tener un carruzel que muestre los videojuegos mas recientes. (el carruzel debe ser interactivo) 
+-La pagina en el inicio debe mostrar los videojuegos mas populares los cuales al clickearlos te llevan hacia la pagina que permitira comprarlos.
+-Al presionar en comprar debe aparecer un mensaje en pantalla que pregunte "Estas seguro que quieres comprar este juego?" y te de dos opciones
+ la primera es: "si, estoy seguro" la cual al presionarla debebera mostrar en pantalla un mensaje que diga gracias por la compra. la segunda opcion es: "No" 
+ la cual al presionarla hara como si nunca hubieras presionado el boton comprar.
+-Mis compras que esta en el menu debe permitir al usuario ver todos los videojuegos que ha comprado.
+-Categorias debera mostrar una cantidad de minimo 20 videojuegos los cuales estaran catalogados por sus respectivos generos ya sean accion, fantasia, aventura, etc.
+ Ademas estos juegos al clickearlos deben llevar al usuario a la pagina para que pueda comprarlo.
+-Sobre Nosotros debera mostrar al usuario informacion mas detallas sobre la "Empresa creadora de la pagina web"
+
+REQUERIMIENTOS QUE POR EL MOMENTO NO TENDRA LA PAGINA
+-Cada juego debe mostrar sus respectivos datos, estos deben ser: fecha de lanzamiento, nombre, descripcion, genero y precio. 
